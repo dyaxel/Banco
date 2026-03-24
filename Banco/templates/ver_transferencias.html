@@ -1,0 +1,51 @@
+{% extends 'formato.html' %}
+
+{% block section%}
+<h1 class="text-center">transferencias realizadas</h1>
+
+
+
+<form action="{% url 'filtrar_fecha' numero_cuenta %}" method="GET">
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-1 color-fon">
+                <b>
+                    <label for="Fecha">Fecha</label>
+                </b>
+            </div>
+            <div class="col-6">
+                <input type="date" id="dato" name="dato" class="form-control">
+            </div>
+            <div class="col-1">
+                    <input type="submit" value="Buscar" class="form-control">
+            </div>
+        </div>
+    </div>
+
+
+<table class="table">
+    <thead class="table-dark">
+        <tr>
+            <th>NUMERO DE CUENTA</th>
+            <th>TIPO DE TRANSACCIÓN</th>
+            <th>MONTO</th>
+            <th>DESCRIPCION</th>
+            <th>FECHA</th>
+            <th>FILTRAR POR FECHA</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for tr in transferencias %}
+            <tr>
+                <td>{{tr.cuenta}}</td>
+                <td>{{tr.tipo}}</td>
+                <td>{{tr.monto}}</td>
+                <td>{{tr.descripcion}}</td>
+                <td>{{tr.fecha}}</td>
+
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock section %}

@@ -1,0 +1,10 @@
+{% extends 'formato.html' %}
+
+{% block section%}
+<h1 class="text-center">CONSULTAS</h1>
+<div class="container">
+        <a href="{% url 'ver_clientes' %}" class="btn btn-info">clientes</a>
+        <a href="{% url 'realizar_transferencia' %}" class="btn btn-warning">Realizar transferencia</a>
+</div>
+
+{% endblock section %}

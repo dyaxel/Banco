@@ -1,0 +1,32 @@
+{% extends 'formato.html' %}
+
+{% block section%}
+<h1 class="text-center">cuentas asociadas</h1>
+    
+<table class="table">
+    <thead class="table-dark">
+        <tr>
+            <th>NUMERO DE CUENTA</th>
+            <th>CLIENTE</th>
+            <th>SALDO</th>
+            <th>FECHA DE CREACION</th>
+            <th>TIPO DE CUENTA</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cuenta in cuentas%}
+            <tr>
+                <td>{{cuenta.numero_cuenta}}</td>
+                <td>{{cuenta.cliente}}</td>
+                <td>{{cuenta.saldo}}</td>
+                <td>{{cuenta.fecha_creacion}}</td>
+                <td>{{cuenta.tipo_cuenta}}</td>
+                <td>
+                    <a href="{% url 'ver_transacciones' cuenta.numero_cuenta %}" class="btn btn-warning">ver transacciones realizadas</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock section %}

@@ -1,0 +1,47 @@
+{% extends 'formato.html' %}
+
+{% block section%}
+
+<div class="container mt-5">
+
+    <div class="card">
+
+        <div class="card-header bg-secondary">
+        Registrar Transaccion
+        </div>
+
+        <div class="card-body">
+
+            <form method="post">
+
+            {% csrf_token %}
+
+                <div class="mb-3">
+                    <label>Cuenta</label>
+                    {{ form.cuenta }}
+                </div>
+
+                <div class="mb-3">
+                    <label>Tipo</label>
+                    {{ form.tipo }}
+                </div>
+
+                <div class="mb-3">
+                    <label>Monto</label>
+                    {{ form.monto }}
+                </div>
+
+                <div class="mb-3">
+                    <label>Descripcion</label>
+                    {{ form.descripcion }}
+                </div>
+
+                
+                <button class="btn btn-warning">Registrar</button>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock section %}

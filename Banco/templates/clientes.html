@@ -1,0 +1,30 @@
+{% extends 'formato.html' %}
+
+{% block section%}
+<h1 class="text-center">clientes</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>DPI</th>
+                <th>NOMBRE</th>
+                <th>TELEFONO</th>
+                <th>FECHA DE REGISTRO</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for cliente in clientes %}
+                <tr>
+                    <td>{{cliente.dpi}}</td>
+                    <td>{{cliente.nombre}}</td>
+                    <td>{{cliente.telefono}}</td>
+                    <td>{{cliente.fecha_registro}}</td>
+                    <td>
+                        <a href="{% url 'ver_cuentas' cliente.dpi %}" class="btn btn-warning">cuentas</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock section %}
